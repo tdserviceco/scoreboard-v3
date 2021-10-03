@@ -3,15 +3,12 @@ import io from "socket.io-client";
 
 function RenderRoundCall(props) {
   const
-    [roundText, updateRoundText] = useState(''),
+    [round, updateRoundText] = useState('ft2'),
     socket = io.connect(props.mode);
 
   useEffect(() => {
     socket.on("roundCallText", ({ roundText }) => {
-      if (roundText === '') {
-        updateRoundText('ft2')
-      }
-      else {
+      if (roundText !== '') {
         updateRoundText(roundText)
       }
     })
@@ -19,7 +16,7 @@ function RenderRoundCall(props) {
 
   return (
     <>
-      <h3>{roundText}</h3>
+      <h3>{round}</h3>
     </>
   )
 }

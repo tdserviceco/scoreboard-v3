@@ -31,14 +31,14 @@ function Login(props) {
     }
 
     if (username === process.env.USERNAME && password === process.env.PWRD) {
-      cookies.set('username', 'admin', { path: '/dashboard/', maxAge: 30 * 60 });
+      cookies.set('username', 'admin', { path: '/dashboard', maxAge: 30 * 60 });
       updateLogin(true)
     }
   }
 
   return (
     <>
-      { !logginAccepted &&
+      {!logginAccepted ?
         <div className="login-screen">
           <div className="overlay">
             <div className="title-header-container">
@@ -68,10 +68,10 @@ function Login(props) {
             </div>
           </div>
         </div>
+        : <Admin mode={props.mode} />
       }
-      { logginAccepted &&
-        <Admin mode={props.mode} />
-      }
+
+
     </>
   );
 }

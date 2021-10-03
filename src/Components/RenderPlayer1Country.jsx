@@ -55,7 +55,6 @@ function RenderPlayer1Country(props) {
     }
   }
 
-
   return (
     <div className="P1-country">
       {renderCountryOfPlayer(countryP1, countryP2)}

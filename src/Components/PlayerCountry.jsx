@@ -4,15 +4,13 @@ import io from "socket.io-client";
 function PlayerCountry(props) {
   const socket = io.connect(props.mode);
 
-  const FilterOfCountries = (countries) => {
-    let dataFromCountries = countries.sort((a, b) => a.name.localeCompare(b.name, 'sv')).map((item, key) => <option key={key} value={item.alpha2Code}>{item.name}</option>);
-    return dataFromCountries;
-  }
+  // const FilterOfCountries = (countries) => {
+  //   let dataFromCountries = countries.sort((a, b) => a.name.localeCompare(b.name, 'sv')).map((item, key) => <option key={key} value={item.alpha2Code}>{item.name}</option>);
+  //   return dataFromCountries;
+  // }
 
   const CountryChangeHandler = (e) => {
     // logic with args, event
-
-
     if (props.player === 'Player-1') {
 
       const IOpackage = {
@@ -31,11 +29,11 @@ function PlayerCountry(props) {
     }
 
   }
-  
+
   return (
     <select className="form-select" onChange={CountryChangeHandler}>
-      <option value={props.player}>Please select country</option>
-      { FilterOfCountries(props.countriesData)}
+      <option value={props.player} selected="selected" hidden="hidden" disabled="disabled" >Please select country</option>
+      {/* { FilterOfCountries(props.countriesData)} */}
     </select>
   );
 }
