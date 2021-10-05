@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import io from "socket.io-client";
 import flag from '../img/flags/default-flag.png';
 function RenderPlayer1Country(props) {
+  console.log(props.mode)
   const
     [countryP1, updateCountryP1] = useState(''),
     [countryP2, updateCountryP2] = useState(''),
@@ -15,8 +16,9 @@ function RenderPlayer1Country(props) {
       updateSwapPlace(swap)
     })
 
-    socket.on("player1country", (country) => {
-      if (countryP1 != country) {
+    socket.on("player1country", country => {
+      console.log(country)
+      if (countryP1 !== country) {
         updateAnimationFlagP1('')
         setTimeout(() => {
           updateAnimationFlagP1('animation-time-flag-P1')
@@ -25,8 +27,9 @@ function RenderPlayer1Country(props) {
       updateCountryP1(country)
     })
 
-    socket.on("player2country", (country) => {
-      if (countryP2 != country) {
+    socket.on("player2country", country => {
+      console.log(country)
+      if (countryP2 !== country) {
         updateAnimationFlagP2('')
         setTimeout(() => {
           updateAnimationFlagP2('animation-time-flag-P2')
