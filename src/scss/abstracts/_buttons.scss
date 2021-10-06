@@ -1,0 +1,25 @@
+@mixin btn-default {
+  border: none;
+  transition: border 300ms ease 0s;
+  padding: 1rem;
+  &:hover,
+  &:focus {
+    background-color: hsl(0, 0%, 100%);
+    border: hsl(0, 0%, 100%) solid 0.125rem;
+    color: rgb(87, 216, 87);
+  }
+}
+
+@mixin btn-round {
+  @include btn-default;
+  width: calc(100% / 2);
+  border-radius: 50%;
+}
+
+@mixin btn-quiz {
+  width: 65.7%;
+  border: black 1px solid;
+  padding: 0.5rem;
+  background: transparent;
+  cursor: pointer;
+}

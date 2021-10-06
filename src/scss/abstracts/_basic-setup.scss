@@ -1,0 +1,38 @@
+// Fonts:
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@100&display=swap");
+// Font-sizes:
+
+// Colour code:
+
+* {
+  box-sizing: content-box;
+  padding: 0;
+  margin: 0;
+  ul,
+  li {
+    list-style: none;
+  }
+}
+
+html {
+  &,
+  body {
+    font-family: "Urbanist", sans-serif;
+    height: 100%;
+    .center {
+      text-align: center;
+    }
+
+    .right {
+      text-align: right;
+    }
+
+    .left {
+      text-align: left;
+    }
+
+    .hide {
+      display: none;
+    }
+  }
+}

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import io from "socket.io-client";
-import flag from '../img/flags/default-flag.png';
 
 function RenderPlayer2Country(props) {
   const
@@ -16,7 +15,7 @@ function RenderPlayer2Country(props) {
       updateSwapPlace(swap)
     })
 
-    socket.on("player1country", (country) => {
+    socket.on("player1country", country => {
       if (countryP1 != country) {
         updateAnimationFlagP1('')
         setTimeout(() => {
@@ -26,7 +25,7 @@ function RenderPlayer2Country(props) {
       updateCountryP1(country)
     })
 
-    socket.on("player2country", (country) => {
+    socket.on("player2country", country => {
       if (countryP2 != country) {
         updateAnimationFlagP2('')
         setTimeout(() => {
@@ -41,18 +40,18 @@ function RenderPlayer2Country(props) {
   const renderCountryOfPlayer = (cP1, cP2) => {
     if (swapPlace) {
       if (cP2 === '' || cP2 === 'Player-2' || cP2 === undefined) {
-        return <img src={`${flag}`} alt="flag" />
+        return <img src={`img/flags/default-flag.png`} alt="flag" />
       }
       return (
-        <img className={`img-p2 ${animationFlagP2}`} src={`${cP2}`} alt="Country flag P2" />
+        <img className={`img-p2 ${animationFlagP2}`} src={`img/flags/${cP2}.svg`} alt="Country flag P2" />
       )
     }
     else if (swapPlace === false) {
       if (cP1 === '' || cP1 === 'Player-1' || cP1 === undefined) {
-        return <img className="swaped" src={`${flag}`} alt="flag" />
+        return <img className="swaped" src={`img/flags/default-flag.png`} alt="flag" />
       }
       return (
-        <img className={`img-p1 swapped ${animationFlagP1}`}src={`${cP1}`} alt="Country flag P1" />
+        <img className={`img-p1 swapped ${animationFlagP1}`} src={`img/flags/${cP1}.svg`} alt="Country flag P1" />
       )
     }
   }
